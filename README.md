@@ -1,11 +1,11 @@
 # Install
 
-
-    composer install
+    git clone https://github.com/gpupo/peccary.git
+    cd peccary;
+    composer install;
 
 
 Custom configuration:
-
 
     cp config/config.dist.php config/config.php
 
