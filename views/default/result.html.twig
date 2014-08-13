@@ -1,0 +1,31 @@
+{% extends "layout.html.twig" %}
+{% set subTitle = 'Itens Found: ' ~ results.total %}
+{% block title %}Results{% endblock %}
+
+{% block content %}
+{% include "pagination.html.twig"  with {'data':results.paginator.paginationData } %}
+
+    <style>
+        .img  .thumbnail .thumb {
+            width: 100px;
+        }
+    </style>
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+            <p class="pull-right visible-xs">
+                <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+            </p>
+
+            <div class="row">
+                <div class="products">
+                    {% for item in results.toArray %}
+                        {% include "item.html.twig" %}
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    {% include "pagination.html.twig"  with {'data':results.paginator.paginationData } %}
+{% endblock %}

@@ -1,0 +1,21 @@
+
+<div class="col-6 col-sm-6 col-lg-4">
+
+    <div class="title">
+        <a href="{{ app.url_generator.generate("fieldRoute", {"field": 'sku',"value": item.id})}}">{{item.title|raw}}</a>
+    </div>
+    <div class="channel"><a href="/channel/{{ item.channel }}">{{ item.channel }}</a></div>
+    <div class="brand"><a href="/brand/{{ item.brand }}">{{ item.brand }}</a></div>
+    <div class="stars">{% if item.review_count %}{{ item.review_average }} stars <i>({{ item.review_count }})</i>{% endif %}</div>
+    <div class="sku">{{ item.sku }}</div>
+    <li><a href="{{ app.url_generator.generate("fieldRoute", {"field": 'category',"value": item.category|raw|slugify })}}">{{ item.category|raw }}</a></li>
+
+
+    <div class="img">
+        <a href="/sku/{{ item.sku }}" class="thumbnail">
+            <img class="lazy img-responsive thumb" data-original="{{item.image_link}}" src="data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=" />
+        </a>
+    </div>
+
+    <p><a class="btn btn-default" href="/sku/{{ item.sku }}" role="button">View details &raquo;</a></p>
+</div>

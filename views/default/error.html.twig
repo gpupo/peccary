@@ -1,0 +1,6 @@
+{% extends "layout.html.twig" %}
+{% block title %}Error{% endblock %}
+{% set subTitle = '' ~ exception.code %}
+{% block content %}
+    <div class="alert alert-danger" role="alert">{{ exception.message }}</div>
+{% endblock %}

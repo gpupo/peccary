@@ -1,0 +1,16 @@
+{% if data.last > 1 %}
+    {% macro buildPathPage(route, page) %}
+        {{ route.path }}?{{ route.pars|merge({ 'page':  page})|buildUrlQuery }}
+    {% endmacro %}
+<div class="row">
+    <ul class="pagination">
+        {% if data.current > 1 %}<li><a href="{{ _self.buildPathPage(route,(data.current-1)) }}">&laquo;</a></li>{% endif %}
+
+        {% for i in data.pagesInRange %}
+            <li><a href="{{ _self.buildPathPage(route,i) }}">{{ i }}</a></li>
+        {% endfor %}
+
+        {% if data.current < data.last %}<li><a href="{{ _self.buildPathPage(route,(data.current+1)) }}">&raquo;</a></li>{% endif %}
+    </ul>
+</div>
+{% endif %}

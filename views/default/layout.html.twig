@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Catalog{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap core CSS -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/css/bootstrap.css" rel="stylesheet" media="screen">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.js"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- Docs master nav -->
+<header class="navbar  navbar-inverse navbar-static-top bs-docs-nav" id="top" role="banner">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="/" class="navbar-brand">Sandbox</a>
+        </div>
+        <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav">
+                <li><a href="/channel/acme">Acme</a></li>
+                <li><a href="/channel/foo">Foo</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-9">
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                <ul class="nav navbar-nav">
+                    <li><a href="/category/tools">/tools</a></li>
+                    <li><a href="/category/terms">/terms</a></li>
+                </ul>
+
+                <div class="col-sm-3 col-md-3 pull-right">
+                    <form action="/search/?" method="get" class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search" name="value" value="{{ word|default('') }}">
+                            <div class="input-group-btn">
+                                <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <select name=mode class="form-control">
+                                <option value=all>all of these words</option>
+                                <option value=phrase>the exact phrase</option>
+                                <option value=any>any of these words</option>
+                                <option value=boolean>boolean</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1>{{ block('title') }}
+        {% if subTitle|default('') |length > 2 %}
+            <small class="hidden-xs hidden-print">- {{subTitle}}</small>
+        {% endif %}
+       </h1>
+    </div>
+
+
+</div>
+<div class="container">
+
+    {% block content %}
+
+    {% endblock %}
+
+    <hr>
+    <footer>
+        <p>&copy; Company 2014</p>
+        <p><a href="/sitemap/">Sitemap</a></p>
+    </footer>
+</div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.min.js"></script>
+<script>
+    $(function() {
+        $("img.lazy").lazyload();
+    });
+</script>
+</body>
+</html>

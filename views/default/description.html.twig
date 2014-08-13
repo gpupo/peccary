@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{item.title|raw}}{% endblock %}
+
+{% block content %}
+
+    <div class="row">
+    <div class="col-xs-12 col-sm-9">
+        <li><a href="/category/{{ item.category|raw|replace(' ', '+') }}">{{ item.category|raw }}</a></li>
+        <div class="channel">Seller: <a href="/channel/{{ item.channel }}">{{ item.channel }}</a></div>
+        <div class="brand"><a href="/brand/{{ item.brand }}">{{ item.brand }}</a></div>
+        <div class="stars">{{ item.review_average }} stars <i>({{ item.review_count }})</i></div>
+        <div class="sku"><i>sku {{ item.sku }}</i></div>
+        <div class="description">{{ item.description|raw|nl2br  }}</div>
+
+        <div class="img">
+            <a href="{{item.link}}" target="_blank">
+                <img src="{{item.image_link}}" />
+            </a>
+        </div>
+
+        <p><a class="btn btn-default" href="{{ item.link }}" role="button" target="_blank">Buy &raquo;</a></p>
+
+
+    </div>
+    </div>
+{% endblock %}

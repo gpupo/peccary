@@ -1,0 +1,14 @@
+{# format documentation: https://support.google.com/webmasters/answer/183668?hl=en #}
+{% spaceless %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+{% for item in results.toArray %}
+    <url>
+        <loc>{{ absolutePath }}{{ app.url_generator.generate("fieldRoute", {"field": 'sku',"value": item.sku})}}</loc>
+    {% if item.image_link %}
+        <image:image><image:loc>{{ item.image_link }}</image:loc></image:image>
+    {% endif %}
+    </url>
+{% endfor %}
+</urlset>
+{% endspaceless %}
