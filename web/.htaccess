@@ -1,1 +1,4 @@
+#see http://silex.sensiolabs.org/doc/web_servers.html
+
+
 FallbackResource /index.php
