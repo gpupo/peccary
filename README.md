@@ -1,3 +1,8 @@
+
+Catalog Sandbox for [Petfinder component](https://github.com/gpupo/petfinder) - PHP Sphinx faceted search over Official
+Sphinx searchd client (PHP API) with Oriented Object results based - with **Sphinx Search** and **Silex Framework**
+
+
 # Install
 
     git clone https://github.com/gpupo/peccary.git

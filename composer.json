@@ -1,6 +1,6 @@
 {
     "name": "gpupo/peccary",
-    "description": "",
+    "description": "Catalog Sandbox with Petfinder component, Sphinx Search and Silex Framework",
     "keywords": ["search"],
     "license": "MIT",
     "require": {
